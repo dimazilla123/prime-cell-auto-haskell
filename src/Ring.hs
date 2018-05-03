@@ -1,6 +1,7 @@
 module Ring (
     Ring (..),
-    getNeirbours
+    getNeirbours,
+    ringLength
 ) where
 
 newtype Ring a = Ring [a]

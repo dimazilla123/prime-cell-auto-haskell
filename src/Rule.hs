@@ -8,9 +8,15 @@ type StateN = Int
 type Cell = Bool
 
 getStateN :: (Cell, Cell, Cell) -> StateN
-getStateN (a, b, c) = let a1 = if a then 4; else 0
-                          b1 = if b then 2; else 0
-                          c1 = if c then 1; else 0
+getStateN (a, b, c) = let a1 = if a
+                                  then 4
+                                  else 0
+                          b1 = if b
+                                  then 2
+                                  else 0
+                          c1 = if c
+                                  then 1
+                                  else 0
                           in
                             a1 + b1 + c1
 

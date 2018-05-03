@@ -18,24 +18,22 @@ cabal-version:       >=1.10
 library rule
   hs-source-dirs:   src
   exposed-modules: Rule
-  build-depends:   base >=4.10 && <4.11,
-                   Ring
+  other-modules: Ring
+  build-depends:   base >=4.10 && <4.11
 library ring
   hs-source-dirs:   src
   exposed-modules: Ring
   build-depends:       base >=4.10 && <4.11
 library universe
   hs-source-dirs:   src
+  other-modules: Ring, Rule
   exposed-modules: Universe
-  build-depends:   base >=4.10 && <4.11,
-                   Ring,
-                   Rule
+  build-depends:   base >=4.10 && <4.11
 
 executable prime-cell-auto
   main-is: Main.hs
-  rule-is: Rule.hs
-  ring-is: Ring.hs
-  -- other-modules:       
+  other-modules:       Ring,
+                       Rule
   -- other-extensions:    
   build-depends:       base >=4.10 && <4.11
   hs-source-dirs:      src
