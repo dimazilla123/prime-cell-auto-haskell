@@ -6,9 +6,13 @@ module Universe (
 import Ring
 import Rule
 
+if' :: Bool -> a -> a -> a
+if' True x y = x
+if' False x y = y
+
 data Universe = Univ (Ring Cell) Rule
 instance Show Universe where
-    show (Univ (Ring xs) r) = show xs
+    show (Univ (Ring xs) r) = fmap (\x -> if' x '*' ' ') xs
 rule :: Universe -> Rule
 rule (Univ x r) = r
 
