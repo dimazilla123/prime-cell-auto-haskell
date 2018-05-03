@@ -33,7 +33,8 @@ library universe
 executable prime-cell-auto
   main-is: Main.hs
   other-modules:       Ring,
-                       Rule
+                       Rule,
+                       Universe
   -- other-extensions:    
   build-depends:       base >=4.10 && <4.11
   hs-source-dirs:      src
