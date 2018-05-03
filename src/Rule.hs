@@ -22,4 +22,4 @@ getStateN (a, b, c) = let a1 = if a
 
 applicateRule :: Rule -> (Cell, Cell, Cell) -> Cell
 applicateRule rule (a, b, c) = let stateIndex = getStateN (a, b, c) in
-                                   (rule `shiftR` stateIndex == 1)
+                                   ((rule `shiftR` stateIndex) `mod` 2 == 1)
