@@ -13,4 +13,4 @@ ringLength (Ring x) = length x
 
 getNeirbours :: Ring a -> Int -> (a, a, a)
 getNeirbours (Ring xs) index = let l = length xs in
-                                   (xs !! ((index - 1) `mod` l), xs !! (index `mod` l), xs !! ((index + 1) `mod` l))
+                                   (xs !! ((index + l - 1) `mod` l), xs !! (index + l `mod` l), xs !! ((index + l + 1) `mod` l))
