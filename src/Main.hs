@@ -2,20 +2,29 @@ module Main (
     main
 ) where
 
+import System.Environment
 import Rule
 import Ring
 import Universe
 
-inputCicle :: Universe -> IO ()
-inputCicle u = do
-    inp <- getLine
-    print u
-    inputCicle . update $ u
+inputCicle :: Int -> Universe -> IO ()
+inputCicle times u = do
+    if times == 0
+       then putStrLn ""
+       else do
+        print u
+        inputCicle (times - 1) . update $ u
+
+prompt :: String -> IO String
+prompt str = do
+    putStr str
+    getLine
 
 main :: IO ()
 main = do
-    putStr "Enter rule num: "
-    ruleStr <- getLine
+    [ruleStr, sizeStr, timesStr] <- getArgs
     let rule = read ruleStr :: Int
-    let u = Univ (Ring (True:replicate 10 False)) rule
-    inputCicle u
+    let size = read sizeStr :: Int
+    let times = read timesStr :: Int
+    let u = Univ (Ring (True:replicate (size - 1) False)) rule
+    inputCicle times u
